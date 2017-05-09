@@ -27,11 +27,13 @@ filebeat.prospectors:
   paths:
     - /opt/tomcat/logs/localhost_access_log.*.txt
   document_type: tomcat-access
-
+  exclude_lines: [".jolokia."]
+  pipeline: access-logs
 - input_type: log
   paths:
     - /opt/tomcat/logs/*
   document_type: tomcat-unknown
+  pipeline: tomcat
   exclude_files: ["localhost_access_log.*.txt"]
   multiline:
     match: after

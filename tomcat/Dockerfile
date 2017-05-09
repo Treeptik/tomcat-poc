@@ -19,10 +19,19 @@ RUN groupadd -r tomcat && \
  chown -R tomcat:tomcat ${CATALINA_HOME}
 
 COPY filebeat.yml /etc/filebeat/filebeat.yml
-COPY filebeat-5.3.2-x86_64.rpm /tmp/filebeat-5.3.2-x86_64.rpm
-RUN rpm -vi /tmp/filebeat-5.3.2-x86_64.rpm
+COPY filebeat-5.4.0-x86_64.rpm /tmp/filebeat-5.4.0-x86_64.rpm
+RUN rpm -vi /tmp/filebeat-5.4.0-x86_64.rpm
 RUN mkdir /var/lib/filebeat && chown -R tomcat:tomcat /var/lib/filebeat
+RUN chmod 644 /etc/filebeat/filebeat.yml
 WORKDIR /opt/tomcat
+
+COPY jolokia-war-1.3.6.war /opt/tomcat/webapps/jolokia.war
+
+COPY metricbeat.yml /etc/metricbeat/metricbeat.yml
+COPY metricbeat-5.4.0-x86_64.rpm /tmp/metricbeat-5.4.0-x86_64.rpm
+RUN rpm -vi /tmp/metricbeat-5.4.0-x86_64.rpm
+RUN mkdir /var/lib/metricbeat && chown -R tomcat:tomcat /var/lib/metricbeat
+RUN chmod 644 /etc/metricbeat/metricbeat.yml
 
 EXPOSE 8080
 EXPOSE 8009

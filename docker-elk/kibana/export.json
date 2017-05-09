@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "5b6d4c90-34c9-11e7-bce5-7d9ffb972fb5",
+    "_type": "visualization",
+    "_source": {
+      "title": "Tomcat Heap",
+      "visState": "{\"title\":\"Tomcat Heap\",\"type\":\"metrics\",\"params\":{\"id\":\"92f49c10-34c7-11e7-bce5-7d9ffb972fb5\",\"type\":\"timeseries\",\"series\":[{\"id\":\"92f49c11-34c7-11e7-bce5-7d9ffb972fb5\",\"color\":\"#68BC00\",\"split_mode\":\"everything\",\"metrics\":[{\"id\":\"92f49c12-34c7-11e7-bce5-7d9ffb972fb5\",\"type\":\"sum\",\"field\":\"jolokia.metrics.memory.heap_usage.committed\"}],\"seperate_axis\":0,\"axis_position\":\"right\",\"formatter\":\"bytes\",\"chart_type\":\"line\",\"line_width\":1,\"point_size\":1,\"fill\":\"0.5\",\"stacked\":\"none\",\"terms_field\":\"beat.name\",\"value_template\":\"{{value}} Mo/s\",\"label\":\"Memory Heap Commited\"},{\"id\":\"35818140-34c9-11e7-bce5-7d9ffb972fb5\",\"color\":\"#68BC00\",\"split_mode\":\"everything\",\"metrics\":[{\"id\":\"35818141-34c9-11e7-bce5-7d9ffb972fb5\",\"type\":\"sum\",\"field\":\"jolokia.metrics.memory.heap_usage.init\"}],\"seperate_axis\":0,\"axis_position\":\"right\",\"formatter\":\"number\",\"chart_type\":\"line\",\"line_width\":1,\"point_size\":1,\"fill\":0.5,\"stacked\":\"none\",\"label\":\"Memory Heap init\"}],\"time_field\":\"@timestamp\",\"index_pattern\":\"*\",\"interval\":\"10s\",\"axis_position\":\"left\",\"axis_formatter\":\"number\",\"show_legend\":1,\"background_color_rules\":[{\"id\":\"a3462930-34c7-11e7-bce5-7d9ffb972fb5\"}],\"bar_color_rules\":[{\"id\":\"a49cb880-34c7-11e7-bce5-7d9ffb972fb5\"}],\"gauge_color_rules\":[{\"id\":\"a5bbe420-34c7-11e7-bce5-7d9ffb972fb5\"}],\"gauge_width\":10,\"gauge_inner_width\":10,\"gauge_style\":\"half\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  }
+]

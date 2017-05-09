@@ -11,6 +11,11 @@ if [ -z "$APPLICATIVE_MONITORING" ] || [ "$APPLICATIVE_MONITORING" -eq 1 ]; then
   filebeat.sh &
 fi
 
+# if $APPLICATIVE_MONITORING doesn't exist or is equals to 1
+if [ -z "$APPLICATIVE_MONITORING" ] || [ "$APPLICATIVE_MONITORING" -eq 1 ]; then
+  metricbeat.sh &
+fi
+
 if [[ $1 == "run" ]]; then
   exec catalina.sh "run"
 fi
