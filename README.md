@@ -3,8 +3,7 @@
 ## JAVA
 
 ```
-docker build -t bdl/java:8.131 .
-docker tag bdl/java:8.131 bdl/java:8
+docker build -t bdl/java:8 .
 ```
 
 ## TOMCAT
