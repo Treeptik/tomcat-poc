@@ -39,18 +39,15 @@ public class PetClinicApplication {
         SpringApplication.run(PetClinicApplication.class, args);
     }
 
-    @Bean
-    @ExportMetricWriter
-    MetricWriter metricWriter(MBeanExporter exporter) {
-        return new JmxMetricWriter(exporter);
-    }
-
-    /*
-       * Reading all metrics that appear on the /metrics endpoint to expose them to metrics writer beans.
-       */
-    @Bean
-    public MetricsEndpointMetricReader metricsEndpointMetricReader(final MetricsEndpoint metricsEndpoint) {
-        return new MetricsEndpointMetricReader(metricsEndpoint);
-    }
+//    @Bean
+//    @ExportMetricWriter
+//    MetricWriter metricWriter(MBeanExporter exporter) {
+//        return new JmxMetricWriter(exporter);
+//    }
+//
+//    @Bean
+//    public MetricsEndpointMetricReader metricsEndpointMetricReader(final MetricsEndpoint metricsEndpoint) {
+//        return new MetricsEndpointMetricReader(metricsEndpoint);
+//    }
 }
 
