@@ -76,7 +76,7 @@ Then run a tomcat app
 
 ```
 docker rm -vf tomcatpoc
-docker run --rm -d --name tomcatpoc -e ELASTICSEARCH_URL=dockerelk_elasticsearch_1:9200 --network=dockerelk_elk -it bdl/tomcat:8 run create-admin
+docker run --rm -d --name tomcatpoc -h tomcatpoc -e ELASTICSEARCH_URL=dockerelk_elasticsearch_1:9200 --network=dockerelk_elk -it bdl/tomcat:8 run create-admin
 ```
 
 Connect to kibana and add 'filebeat-*' and 'metricbeat-*' indexes and import dashboard file.
