@@ -27,16 +27,8 @@ First step run ELK stack within docker compose
 docker-compose up -d
 ```
 
-Then run a tomcat app
+Then configure elasticsearch ingest pipeline
 
-```
-docker rm -vf tomcatpoc
-docker run --rm -d --name tomcatpoc -e ELASTICSEARCH_URL=dockerelk_elasticsearch_1:9200 --network=dockerelk_elk -it bdl/tomcat:8 run create-admin
-```
-
-Then configure elasticsearch ingest pipeline and kibana dasboard
-
-Push elasticsearch pipeline
 ```
 curl -XPUT 'localhost:9200/_ingest/pipeline/access-logs?pretty' -H 'Content-Type: application/json' -d'
 {
@@ -78,6 +70,13 @@ curl -XPUT 'localhost:9200/_ingest/pipeline/tomcat?pretty' -H 'Content-Type: app
     }
   ]
 }'
+```
+
+Then run a tomcat app
+
+```
+docker rm -vf tomcatpoc
+docker run --rm -d --name tomcatpoc -e ELASTICSEARCH_URL=dockerelk_elasticsearch_1:9200 --network=dockerelk_elk -it bdl/tomcat:8 run create-admin
 ```
 
 Connect to kibana and add 'filebeat-*' and 'metricbeat-*' indexes and import dashboard file.
