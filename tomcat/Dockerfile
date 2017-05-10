@@ -2,6 +2,7 @@ FROM bdl/java:8.131
 
 ARG TOMCAT_VERSION
 ENV TOMCAT_VERSION ${TOMCAT_VERSION:-8.0.43}
+ENV ELASTICSEARCH_URL http://elasticsearch:9200
 
 # Install Tomcat
 ENV CATALINA_HOME /opt/tomcat

@@ -1,0 +1,39 @@
+metricbeat.modules:
+- module: jolokia
+  metricsets: ["jmx"]
+  enabled: true
+  period: 10s
+  hosts: ["localhost:8080"]
+  namespace: "metrics"
+  path: "/jolokia/?ignoreErrors=true&canonicalNaming=false"
+  jmx.mappings:
+    - mbean: 'java.lang:type=Memory'
+      attributes:
+        - attr: HeapMemoryUsage
+          field: memory.heap_usage
+    - mbean: 'java.lang:type=OperatingSystem'
+      attributes:
+        - attr: SystemLoadAverage
+          field: system.load.average
+        - attr: SystemCpuLoad
+          field: system.load.cpu
+    - mbean: 'java.lang:type=Threading'
+      attributes:
+        - attr: ThreadCount
+          field: thread.count
+    - mbean: 'Catalina:name=executor,type=Executor'
+      attributes:
+        - attr: queueSize
+          field: executor.queue_size
+
+output.elasticsearch:
+  # Boolean flag to enable or disable the output module.
+  enabled: true
+
+  # Array of hosts to connect to.
+  # Scheme and port can be left out and will be set to the default (http and 9200)
+  # In case you specify and additional path, the scheme is required: http://localhost:9200/path
+  # IPv6 addresses should always be defined as: https://[2001:db8::1]:9200
+  hosts: ["${ELASTICSEARCH_URL}"]
+
+logging.to_files: false
