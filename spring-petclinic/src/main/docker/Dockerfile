@@ -1,8 +1,14 @@
-FROM bdl/tomcat:8
+FROM poc/tomcat:8
 
-LABEL directory @project.build.directory@
+LABEL application @project.build.finalName@
+LABEL git.branch @git.branch@
+LABEL git.commit.id.abbrev @git.commit.id.abbrev@
+LABEL git.commit.user.email @git.commit.user.email@
+LABEL git.commit.message.full @git.commit.message.full@
+LABEL git.commit.time @git.commit.time@
 
-ADD spring-petclinic.war $CATALINA_HOME/webapps
 USER root
+RUN rm -rf $CATALINA_HOME/webapps/*
+ADD spring-petclinic.war $CATALINA_HOME/webapps/ROOT.war
 RUN chown -R tomcat:tomcat $CATALINA_HOME/webapps
 USER tomcat

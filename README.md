@@ -3,19 +3,19 @@
 ## JAVA
 
 ```
-docker build -t bdl/java:8 .
+docker build -t poc/java:8 .
 ```
 
 ## TOMCAT
 
 ```
-docker build -t bdl/tomcat:8 --build-arg TOMCAT_VERSION=8.0.43 .
+docker build -t poc/tomcat:8 --build-arg TOMCAT_VERSION=8.0.43 .
 ```
 
 ## APPLICATION
 
 ```
-docker build -t bdl/poc  .
+docker build -t poc/poc  .
 ```
 
 # HOW TO RUN
@@ -75,9 +75,35 @@ Then run a tomcat app
 
 ```
 docker rm -vf tomcatpoc
-docker run --rm -d --name tomcatpoc -h tomcatpoc -e ELASTICSEARCH_URL=dockerelk_elasticsearch_1:9200 --network=dockerelk_elk -it bdl/tomcat:8 run create-admin
+docker run --rm -d --name tomcatpoc -h tomcatpoc -e ELASTICSEARCH_URL=dockerelk_elasticsearch_1:9200 --network=dockerelk_elk -it poc/tomcat:8 run create-admin
 ```
 
 Connect to kibana and add 'filebeat-*' and 'metricbeat-*' indexes and import dashboard file.
 
 # tomcat-poc
+
+Go to *spring-petclinic* directory and run the command:
+```
+mvn clean package docker:build 
+```
+
+Then
+
+```
+docker run --rm --name petclinic -d -p 8080:8080 poc/spring-petclinic
+docker logs -f petclinic
+```
+
+# TODO
+
+# WORFLOW
+- [ ] Add .gitignore or move Dockerfile filtered into specific directory
+
+## Docker Compose
+- [ ] Create a docker compose file to run Mysql with the image
+- [ ] Use Spring profile with images
+
+## Testing
+- [ ] Jococo integration and usecases
+- [ ] Sonar and usecases
+- [ ] Selenium
