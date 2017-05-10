@@ -3,7 +3,7 @@
     "_id": "b855c210-3560-11e7-be04-39064b920273",
     "_type": "dashboard",
     "_source": {
-      "title": "Tomcat Dasboard",
+      "title": "Tomcat Dashboard",
       "hits": 0,
       "description": "",
       "panelsJSON": "[{\"col\":1,\"id\":\"5b6d4c90-34c9-11e7-bce5-7d9ffb972fb5\",\"panelIndex\":1,\"row\":6,\"size_x\":12,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"3c74ce70-3560-11e7-a34c-5b78ab7cc2eb\",\"panelIndex\":2,\"row\":4,\"size_x\":12,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"6293b7b0-3560-11e7-be04-39064b920273\",\"panelIndex\":3,\"row\":8,\"size_x\":12,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"b5469960-3578-11e7-b59f-7b2b33c5c985\",\"panelIndex\":4,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"9074a280-3578-11e7-b59f-7b2b33c5c985\",\"panelIndex\":5,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"f77718c0-3576-11e7-b59f-7b2b33c5c985\",\"panelIndex\":6,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"}]",
