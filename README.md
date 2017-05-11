@@ -71,15 +71,6 @@ curl -XPUT 'localhost:9200/_ingest/pipeline/tomcat?pretty' -H 'Content-Type: app
 }'
 ```
 
-Then run a tomcat app
-
-```
-docker rm -vf tomcatpoc
-docker run --rm -d --name tomcatpoc -h tomcatpoc -e ELASTICSEARCH_URL=dockerelk_elasticsearch_1:9200 --network=dockerelk_elk -it poc/tomcat:8 run create-admin
-```
-
-Connect to kibana and add 'filebeat-*' and 'metricbeat-*' indexes and import dashboard file.
-
 # tomcat-poc
 
 Go to *spring-petclinic* directory and run the command:
@@ -90,9 +81,11 @@ mvn clean package docker:build
 Then
 
 ```
-docker run --rm --name petclinic -d -p 8080:8080 poc/spring-petclinic
+docker run --rm --name petclinic -h petclinic --network dockerelk_elk -d -p 8080:8080 poc/spring-petclinic
 docker logs -f petclinic
 ```
+
+Connect to kibana and add 'filebeat-*' and 'metricbeat-*' indexes and import dashboard file.
 
 # TODO
 
