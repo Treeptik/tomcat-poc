@@ -31,10 +31,15 @@ filebeat.prospectors:
   pipeline: access-logs
 - input_type: log
   paths:
+    - /opt/tomcat/logs/spring-boot-logging.log
+  document_type: spring
+#  pipeline: access-logs
+- input_type: log
+  paths:
     - /opt/tomcat/logs/*
   document_type: tomcat-unknown
   pipeline: tomcat
-  exclude_files: ["localhost_access_log.*.txt"]
+  exclude_files: ["localhost_access_log.*.txt", "spring-boot-logging.log"]
   multiline:
     match: after
     negate: true
