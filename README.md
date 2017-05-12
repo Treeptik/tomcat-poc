@@ -69,6 +69,19 @@ curl -XPUT 'localhost:9200/_ingest/pipeline/tomcat?pretty' -H 'Content-Type: app
     }
   ]
 }'
+
+curl -XPUT 'localhost:9200/_ingest/pipeline/app?pretty' -H 'Content-Type: application/json' -d'
+{
+  "description" : "Ingest pipeline for applicative logs",
+  "processors" : [
+    {
+      "grok": {
+        "field": "message",
+        "patterns": ["20%{YEAR}-%{MONTHNUM}-%{MONTHDAY} %{TIME}.%{INT}  %{LOGLEVEL:level} %{NUMBER:javathread} --- \\[%{DATA:thread}\\] %{JAVACLASS:class} %{GREEDYDATA:logmessage}"]
+      }
+    }
+  ]
+}'
 ```
 
 # tomcat-poc
