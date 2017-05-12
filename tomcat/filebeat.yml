@@ -33,7 +33,7 @@ filebeat.prospectors:
   paths:
     - /opt/tomcat/logs/spring-boot-logging.log
   document_type: spring
-#  pipeline: access-logs
+  pipeline: app
 - input_type: log
   paths:
     - /opt/tomcat/logs/*
